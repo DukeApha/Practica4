@@ -10,17 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar repositorio
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Configurar Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Ejecutar Hola Mundo
-        run: node index.js
+      - run: node index.js
 
-      - name: Enviar notificacion a ntfy
-        run: curl -H "Title: Push exitoso en main" -H "Priority: 5" -d "Repositorio: ${{ github.repository }} | Autor: ${{ github.actor }} | Mensaje: ${{ github.event.head_commit.message }}" https://ntfy.sh/devops-itla
-
+      - name: Enviar notificacion
+        run: >
+          curl -H 'Title: Push exitoso en main'
+          -H 'Priority: 5'
+          -d 'Repositorio: ${{ github.repository }} | Autor: ${{ github.actor }} | Mensaje: ${{ github.event.head_commit.message }}'
+          https://ntfy.sh/devops-itla
