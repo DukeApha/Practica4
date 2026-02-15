@@ -1,0 +1,9 @@
+{
+  "name": "hola-mundo-devops",
+  "version": "1.0.0",
+  "description": "Proyecto Hola Mundo con CI y notificación ntfy",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
